@@ -1,11 +1,19 @@
     body {
         font-family: 'Courier New', Courier, monospace;
         text-align: center;
-        background-color:bisque;
+        background-color:rgb(43, 70, 72);
     }
 
     #rules h3 {
-        color:brown;
+        color:black;
+    }
+
+    .players p1 {
+        color: red;
+    }
+
+    .players p2 {
+        color: yellow;
     }
 
     #board {
