@@ -1,13 +1,14 @@
 
 
-let playerRed = "R";
-let playerYellow = "Y";
+let playerRed = "Red";
+let playerYellow = "Yellow";
 let currPlayer = playerRed;
 
 let gameOver = false;
 let board;
 let currColumns;
 
+// Typical 6x7 boards
 let rows = 6;
 let columns = 7;
 
@@ -66,64 +67,4 @@ function setDisc(){
 
     checkWinner();
 
-}
-
-function checkWinner() {
-    // horizontal
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < columns - 3; c++){
-           if (board[r][c] != ' ') {
-               if (board[r][c] == board[r][c+1] && board[r][c+1] == board[r][c+2] && board[r][c+2] == board[r][c+3]) {
-                   setWinner(r, c);
-                   return;
-               }
-           }
-        }
-   }
-
-   // vertical
-   for (let c = 0; c < columns; c++) {
-       for (let r = 0; r < rows - 3; r++) {
-           if (board[r][c] != ' ') {
-               if (board[r][c] == board[r+1][c] && board[r+1][c] == board[r+2][c] && board[r+2][c] == board[r+3][c]) {
-                   setWinner(r, c);
-                   return;
-               }
-           }
-       }
-   }
-
-   // anti diagonal
-   for (let r = 0; r < rows - 3; r++) {
-       for (let c = 0; c < columns - 3; c++) {
-           if (board[r][c] != ' ') {
-               if (board[r][c] == board[r+1][c+1] && board[r+1][c+1] == board[r+2][c+2] && board[r+2][c+2] == board[r+3][c+3]) {
-                   setWinner(r, c);
-                   return;
-               }
-           }
-       }
-   }
-
-   // diagonal
-   for (let r = 3; r < rows; r++) {
-       for (let c = 0; c < columns - 3; c++) {
-           if (board[r][c] != ' ') {
-               if (board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board[r-2][c+2] && board[r-2][c+2] == board[r-3][c+3]) {
-                   setWinner(r, c);
-                   return;
-               }
-           }
-       }
-   }
-}
-
-function setWinner(r, c) {
-   let winner = document.getElementById("winner");
-   if (board[r][c] == playerRed) {
-       winner.innerText = "Red Player Wins";             
-   } else {
-       winner.innerText = "Yellow Player Wins";
-   }
-   gameOver = true;
 }
