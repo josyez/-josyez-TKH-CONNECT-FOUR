@@ -66,5 +66,4 @@ function setDisc(){
     currColumns[c] = r;
 
     checkWinner();
-
 }
